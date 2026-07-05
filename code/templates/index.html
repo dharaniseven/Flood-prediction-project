@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Flood Prediction System</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-house-flood-water"></i>
+Flood Prediction System
+</div>
+
+<ul>
+
+<li><a href="/">Home</a></li>
+
+<li><a href="/about">About</a></li>
+
+<li><a href="/">Predict</a></li>
+
+<li><a href="/model-comparison">Model Comparison</a></li>
+
+<li><a href="/confusion-matrix">Confusion Matrix</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>
+    FLOOD PREDICTION <span>SYSTEM</span>
+</h1>
+
+<p>
+
+Predict Floods.
+
+<span>Save Lives.</span>
+
+</p>
+
+</section>
+
+<div class="container">
+
+<h2>
+
+ENTER WEATHER DETAILS
+
+</h2>
+
+<form action="/predict" method="POST">
+
+<div class="form-grid">
+
+{% for feature in features %}
+
+<div {% if loop.last %}class="full"{% endif %}>
+
+<label>
+
+{{ feature.replace("_"," ").title() }}
+
+</label>
+
+<input
+
+type="number"
+
+step="any"
+
+name="{{ feature }}"
+
+placeholder="Enter {{ feature }}"
+
+required>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<button type="submit">
+
+<i class="fa-solid fa-chart-column"></i>
+
+Predict Flood
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
