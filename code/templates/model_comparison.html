@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}
+Model Comparison
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>
+        MODEL
+        <br>
+        <span>COMPARISON</span>
+    </h1>
+
+    <p>
+        Performance Comparison of Machine Learning Algorithms
+    </p>
+
+</section>
+
+<div class="card">
+
+    <h2 style="text-align:center;margin-bottom:30px;">
+        Accuracy Comparison
+    </h2>
+
+    <table>
+
+        <tr>
+            <th>Algorithm</th>
+            <th>Accuracy (%)</th>
+        </tr>
+
+        <tr>
+            <td>Decision Tree</td>
+            <td>92.35%</td>
+        </tr>
+
+        <tr>
+            <td>Random Forest</td>
+            <td>95.12%</td>
+        </tr>
+
+        <tr>
+            <td>K-Nearest Neighbors (KNN)</td>
+            <td>90.48%</td>
+        </tr>
+
+        <tr style="background:#1565c0;color:white;font-weight:bold;">
+            <td>XGBoost ⭐</td>
+            <td>96.55%</td>
+        </tr>
+
+    </table>
+
+    <br><br>
+
+    <h2 style="text-align:center;">
+        Accuracy Graph
+    </h2>
+
+    <img
+    src="{{ url_for('static', filename='model_comparison.png') }}"
+    class="graph"
+    alt="Model Comparison">
+
+    <br>
+
+    <div style="text-align:center;">
+
+        <a href="/" class="btn">
+
+            ← Back to Home
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
